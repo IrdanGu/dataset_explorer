@@ -1,0 +1,31 @@
+Name,Age,Salary,Department,City,Experience,Rating,Bonus
+Alice,30,72000,Engineering,Jakarta,5,4.2,3500
+Bob,25,48000,Marketing,Surabaya,2,3.8,1500
+Charlie,,85000,Engineering,Bandung,8,4.5,5000
+Diana,35,91000,Data Science,Jakarta,10,4.9,7000
+Eve,28,54000,Marketing,,3,3.5,2000
+Frank,42,110000,Engineering,Medan,15,4.7,8500
+Grace,31,67000,Data Science,Jakarta,6,4.1,3000
+Hank,27,,Marketing,Surabaya,2,3.2,1200
+Ivy,38,95000,Engineering,Bandung,12,4.6,6500
+Jack,29,58000,,Jakarta,4,3.9,2500
+Kate,33,78000,Data Science,Medan,7,4.3,4000
+Leo,26,45000,Marketing,Surabaya,1,3.0,1000
+Mia,40,105000,Engineering,Jakarta,,4.8,7500
+Noah,34,82000,Data Science,Bandung,9,4.4,4500
+Olivia,24,42000,Marketing,Medan,1,2.9,800
+Paul,45,125000,Engineering,Jakarta,20,5.0,10000
+Quinn,29,61000,Data Science,Surabaya,4,3.7,2800
+Rachel,37,88000,Engineering,,11,4.5,5500
+Sam,32,73000,Marketing,Jakarta,6,3.6,2200
+Tina,28,55000,Data Science,Bandung,3,4.0,1800
+Uma,41,98000,Engineering,Medan,14,4.6,6000
+Victor,26,,Marketing,Surabaya,2,3.1,1100
+Wendy,39,92000,Data Science,Jakarta,13,4.7,5800
+Xavier,30,65000,Engineering,Bandung,5,4.2,3200
+Yara,23,40000,,Medan,0,2.8,500
+Zack,36,85000,Data Science,Jakarta,8,4.4,4200
+Amy,29,57000,Marketing,Surabaya,3,3.4,1600
+Ben,44,115000,Engineering,Jakarta,18,4.9,9000
+Cara,27,50000,Data Science,,2,3.6,1400
+Dan,33,76000,Marketing,Medan,7,3.8,2400

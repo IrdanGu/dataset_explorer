@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dataset Explorer</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Dataset Explorer</h1>
+        <p class="subtitle">EDA & Feature Engineering</p>
+    </header>
+
+    <main>
+        <section id="upload-section" class="card">
+            <div class="upload-area" id="drop-zone">
+                <div class="upload-icon">&#128203;</div>
+                <p>Drag & drop a CSV file here, or</p>
+                <label class="btn btn-primary">
+                    Browse Files
+                    <input type="file" id="file-input" accept=".csv" hidden>
+                </label>
+                <p class="hint">Max 50 MB &middot; CSV only</p>
+            </div>
+        </section>
+
+        <section id="dashboard" class="hidden">
+            <div class="summary-bar card" id="summary-bar"></div>
+
+            <div class="tabs">
+                <button class="tab active" data-tab="overview">Overview</button>
+                <button class="tab" data-tab="statistics">Statistics</button>
+                <button class="tab" data-tab="distributions">Distributions</button>
+                <button class="tab" data-tab="correlations">Correlations</button>
+                <button class="tab" data-tab="transforms">Transforms</button>
+                <button class="tab" data-tab="data">Data Preview</button>
+            </div>
+
+            <div id="tab-overview" class="tab-content active">
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>Column Types</h3>
+                        <canvas id="chart-types"></canvas>
+                    </div>
+                    <div class="card">
+                        <h3>Missing Values</h3>
+                        <canvas id="chart-missing"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Column Summary</h3>
+                    <div class="table-wrap" id="col-summary-table"></div>
+                </div>
+            </div>
+
+            <div id="tab-statistics" class="tab-content">
+                <div class="card">
+                    <div class="control-row">
+                        <label>Column:
+                            <select id="stats-col-select"></select>
+                        </label>
+                    </div>
+                    <div id="stats-detail"></div>
+                </div>
+            </div>
+
+            <div id="tab-distributions" class="tab-content">
+                <div class="card">
+                    <div class="control-row">
+                        <label>Column:
+                            <select id="dist-col-select"></select>
+                        </label>
+                    </div>
+                    <canvas id="chart-distribution"></canvas>
+                </div>
+            </div>
+
+            <div id="tab-correlations" class="tab-content">
+                <div class="card">
+                    <h3>Pearson Correlation Matrix</h3>
+                    <div id="corr-matrix-wrap"></div>
+                </div>
+            </div>
+
+            <div id="tab-transforms" class="tab-content">
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>Apply Transform</h3>
+                        <div class="control-row">
+                            <label>Column:
+                                <select id="tf-col-select"></select>
+                            </label>
+                        </div>
+                        <div class="control-row">
+                            <label>Action:
+                                <select id="tf-action">
+                                    <option value="log">Log Transform</option>
+                                    <option value="normalize">Min-Max Normalize</option>
+                                    <option value="zscore">Z-Score Standardize</option>
+                                    <option value="onehot">One-Hot Encode</option>
+                                    <option value="fill_missing">Fill Missing</option>
+                                    <option value="drop_missing">Drop Missing Rows</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div id="tf-extra-opts"></div>
+                        <div class="control-row">
+                            <button class="btn btn-primary" id="tf-apply">Apply</button>
+                            <button class="btn btn-danger" id="tf-reset">Reset to Original</button>
+                        </div>
+                        <div id="tf-result" class="hint"></div>
+                    </div>
+                    <div class="card">
+                        <h3>Transform History</h3>
+                        <ul id="tf-history"></ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-data" class="tab-content">
+                <div class="card">
+                    <div class="control-row">
+                        <button class="btn btn-primary" id="export-btn">Export Cleaned CSV</button>
+                        <span class="hint" id="data-info"></span>
+                    </div>
+                    <div class="table-wrap" id="data-table"></div>
+                    <div class="control-row" id="pagination"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="toast" class="toast hidden"></div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
